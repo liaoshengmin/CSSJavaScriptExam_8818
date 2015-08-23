@@ -1,0 +1,5 @@
+﻿mvn clean
+mvn compile
+mvn tomcat:run
+
+浏览器输入网址：http://localhost:8080/CSSJavaScriptExam_8818/login.jsp
