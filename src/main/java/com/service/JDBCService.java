@@ -1,4 +1,4 @@
-package com.service;
+﻿package com.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -91,21 +91,24 @@ public class JDBCService {
 	
 	public void delete(int id){
 		System.out.println(id);
-		String sql = "delete from payment where customer_id=?";
-		PreparedStatement preparedStatement;
+		String sql =null;
+		PreparedStatement ps;
 		try {
-			preparedStatement = conn.prepareCall(sql);
-			preparedStatement.setInt(1, id);
-			preparedStatement.execute();
+
+			sql = "delete from payment where customer_id=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			ps.execute();
 			sql = "delete from rental where customer_id=?";
-			preparedStatement = conn.prepareCall(sql);
-			preparedStatement.setInt(1, id);
-			preparedStatement.execute();
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			ps.execute();
 			sql = "delete from customer where customer_id=?";
-			preparedStatement.setInt(1, id);
-			System.out.println(id);
-			preparedStatement.execute();
-			System.out.println(id);
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);		
+			ps.execute();
+			
+
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
